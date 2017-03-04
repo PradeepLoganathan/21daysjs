@@ -2,36 +2,38 @@
 var recipe = 
 {
     recipesteps : [],
+    Ingredients :[],
 
 
-    addRecipeSteps: function(step)
+    addRecipeStep: function(stepname)
     {
-        this.recipesteps.push(step);
+        this.recipesteps.push({stepname:stepname, completed:false });
     },
 
-    displayRecipe: function()
+    
+    changeRecipestep: function(stepnumber, stepname )
     {
-        console.log(this.recipesteps);
-    },
-
-    changeRecipe: function(stepnumber, step )
-    {
-        this.recipesteps[stepnumber-1] = step;
+        this.recipesteps[stepnumber-1].stepname = stepname;
     },
 
 
     removeRecipeStep: function(stepnumber)
     {
         this.recipesteps.splice(stepnumber - 1, 1);
+    },
+
+    displayRecipe: function()
+    {
+        console.log(this.recipesteps);
     }
 
 };
 
-recipe.addRecipeSteps('get flour');
-recipe.addRecipeSteps('add yeast');
-recipe.addRecipeSteps('add sugar');
+recipe.addRecipeStep('get flour');
+recipe.addRecipeStep('add yeast');
+recipe.addRecipeStep('add sugar');
 recipe.displayRecipe();
-recipe.changeRecipe(2, 'add soda');
+recipe.changeRecipestep(2, 'add soda');
 recipe.displayRecipe();
 recipe.removeRecipeStep(2)
 recipe.displayRecipe();

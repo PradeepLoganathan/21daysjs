@@ -44,7 +44,45 @@ var recipe =
 
 };
 
+var view = 
+{
+    displayRecipe:function()
+    {
+        var recipeul = document.querySelector("ul");
+        recipeul.innerHTML = "";
 
+        for( var i =0; i < recipe.recipesteps.length; i++)
+        {
+            var recipeli = document.createElement("li");
+            recipeli.textContent = recipe.recipesteps[i].stepname;
+            recipeul.appendChild(recipeli);
+        }
+    }
+};
+
+
+var handler = 
+{
+    addRecipeStep:function()
+    {
+        var txtrecipestep = document.getElementById("txtrecipestep");
+        recipe.addRecipeStep(txtrecipestep.value);
+        txtrecipestep.value = "";
+    },
+
+    displayRecipe:function()
+    {
+        recipe.displayRecipe();
+    },
+
+    changeRecipestep:function()
+    {
+        var txtrecipestepnumber = document.getElementById("txtrecipestepnumber");
+        var txtmodifyrecipestep = document.getElementById("txtmodifyrecipestep");
+        recipe.changeRecipestep(txtrecipestepnumber.valueAsNumber, txtmodifyrecipestep.value);
+    }
+
+};
 
 // var btndisplayrecipes = document.getElementById('btndisplayrecipe');
 // btndisplayrecipes.addEventListener("click", function() { recipe.displayRecipe();});

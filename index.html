@@ -5,12 +5,26 @@
     </head>    
     
     <body>
-        <h3>Recipe steps</h3>
-        <button onclick="recipe.displayRecipe()">Display Recipe</button>
+        <h1>Recipe Manager</h1>
+        
+        <div>
+        <button onclick="view.displayRecipe()">Display Recipe</button>
+        </div>
 
         <div>
             <input id="txtrecipestep" type="text">
+            <button onclick="handler.addRecipeStep()"> Add Recipe step</button>
         </div>
+
+        <div>
+            <input id="txtrecipestepnumber" type="number">
+            <input id="txtmodifyrecipestep" type="text">
+            <button onclick="handler.changeRecipestep()"> Modify Recipe Step </button>
+        </div>
+
+        <ul>
+
+        </ul>
     </body>
     
     <script src="recipe.js"></script>
